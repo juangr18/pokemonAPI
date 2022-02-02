@@ -4,7 +4,7 @@ const getPokemons = (api) => {
   return fetch(api)
     .then((response) => response.json())
     .then((json) => {
-      writePokemons(json.results);
+      writePokemons(json.results), pagination(json.next,json.previous);
     })
     .catch((error) => {
       console.log("Error in Pokemon api: ", error);
@@ -48,6 +48,15 @@ const getInfoPokemon = (api, c) => {
       document.getElementById(`load${c}`).innerHTML = html;
     })
     .catch((error) => console.log("Error in the image api: ", error));
+};
+
+const pagination=(n,p)=>{
+  let html="";
+  html+=`
+  <li class="page-item ${p==null?"disabled":""}"><a class="page-link btn btn-dark" onclick="getPokemons('${p}')"> Prev </a> </li>
+  <li class="page-item ${n==null?"disabled":""}"><a class="page-link btn btn-dark" onclick="getPokemons('${n}')"> Next </a> </li>
+  `;
+  document.getElementById("pagination").innerHTML=html;
 };
 
 getPokemons(URLAPI);
