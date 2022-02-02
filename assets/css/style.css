@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+nav img{
+    padding: 0;
+    margin: 0;
+    width: 5%;
+    height: 5%;
+}
+body{
+    background-color: #ffcb05;
+}
