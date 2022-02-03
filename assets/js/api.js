@@ -39,6 +39,8 @@ const getInfoPokemon = (api, c) => {
       let h = json.height;
       let w = json.weight;
       let img = json.sprites.other.dream_world.front_default;
+      let id=json.id;
+      html+=`<div class="idPoke">#${id}</div>`
       html += `<img src="${img}" class="card-img-top" alt="...">`;
       html += '<div class="card-body">';
       html += `<h5 class="card-title">Height: ${h}</h5>`;
